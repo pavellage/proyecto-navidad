@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 dic 2023 18:54:12 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="navidad" name="modelo.Proveedores" optimistic-lock="none" table="proveedores">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="cif" type="string">
+            <column length="50" name="cif"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="productoses" table="productos">
+            <key>
+                <column name="proveedor"/>
+            </key>
+            <one-to-many class="modelo.Productos"/>
+        </set>
+    </class>
+</hibernate-mapping>

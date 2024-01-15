@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 dic 2023 18:54:12 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="navidad" name="modelo.Usuarios" optimistic-lock="none" table="usuarios">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="foreign"/>
+        </id>
+        <one-to-one class="modelo.Clientes" constrained="true" name="clientes"/>
+        <property name="nombre" type="string">
+            <column length="40" name="nombre" not-null="true"/>
+        </property>
+        <property name="password" type="string">
+            <column length="128" name="password" not-null="true"/>
+        </property>
+        <property name="email" type="string">
+            <column length="100" name="email"/>
+        </property>
+        <property name="terminosuso" type="binary">
+            <column name="terminosuso"/>
+        </property>
+        <property name="permiso" type="java.lang.Integer">
+            <column name="permiso"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 dic 2023 18:54:12 by Hibernate Tools 6.3.1.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="navidad" name="modelo.Clientes" optimistic-lock="none" table="clientes">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nombre" type="string">
+            <column length="40" name="nombre" not-null="true"/>
+        </property>
+        <property name="ape1" type="string">
+            <column length="40" name="ape1"/>
+        </property>
+        <property name="ape2" type="string">
+            <column length="40" name="ape2"/>
+        </property>
+        <property name="esFrecuente" type="binary">
+            <column name="es_frecuente"/>
+        </property>
+        <property name="telefono" type="string">
+            <column length="15" name="telefono"/>
+        </property>
+        <property name="direccionPostal" type="string">
+            <column length="100" name="direccion_postal"/>
+        </property>
+        <property name="nif" type="string">
+            <column length="100" name="nif"/>
+        </property>
+        <property name="email" type="string">
+            <column length="100" name="email"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="comprases" table="compras">
+            <key>
+                <column name="cliente"/>
+            </key>
+            <one-to-many class="modelo.Compras"/>
+        </set>
+        <one-to-one class="modelo.Usuarios" name="usuarios"/>
+    </class>
+</hibernate-mapping>
